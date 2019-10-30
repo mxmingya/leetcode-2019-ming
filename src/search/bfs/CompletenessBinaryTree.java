@@ -37,4 +37,28 @@ import java.util.Queue;
             }
             return q.isEmpty();
         }
+     
+         public boolean isCompleteTreeDFS(TreeNode root) {
+        if (root == null ) {
+            return true;
+        }
+        return dfs(root, 0, countNodes(root));
+    }
+    
+    boolean dfs(TreeNode root, int index, int numOfNodes) {
+        if (root == null) {
+            return true;
+        }
+        if (index >= numOfNodes) {
+            return false;
+        }
+        return dfs(root.left, index*2+1, numOfNodes) && dfs(root.right, index*2+2, numOfNodes);
+    }
+    
+    int countNodes(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return 1 + countNodes(root.left) + countNodes(root.right);
+    }
     }
