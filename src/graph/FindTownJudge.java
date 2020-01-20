@@ -1,4 +1,4 @@
-class Solution {
+class FindTownJudge {
     public int findJudge(int N, int[][] trust) {
         if (trust.length == 0) {
             return 1;
